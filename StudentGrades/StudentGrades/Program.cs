@@ -18,14 +18,27 @@ namespace StudentGrades
             //this allows user to press enter 
             Console.ReadLine();
 
-            //reads the text file 
-            student.GetStudentData();
+            List<string> students = new List<string>();
+
+            string line;
+
+            //reads txt file and creates list, each line being item in list. 
+            using (StreamReader sr = new StreamReader(@"C:\Users\nerdelt\source\repos\CG-11-2\StudentGrades\StudentGrades\studentdata.txt"))
+            {
+                //while loop to add each line as an element in  list Students
+                while ((line = sr.ReadLine()) != null)
+                {
+                    students.Add(line);
+                }
+            }
 
             //goes through text file, assigns student's name and average and prints 
-            student.NameAndAverage();
+            student.NameAndAverage(students);
 
             Console.ReadLine();
 
+      
+            }
         }
     }
-}
+ 

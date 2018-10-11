@@ -8,9 +8,6 @@ namespace StudentGrades
 {
     class Student
     {
-        // creates string array for txt file to go into
-        public List<string> Students = new List<string>();
-        
         //creates a list for all the split strings from Students
         public List<string> SplitList = new List<string>();
 
@@ -23,24 +20,10 @@ namespace StudentGrades
         //creates double to find average from scores list
         public double Average { get; set; }
 
-        public void GetStudentData()
-        {
-            string line;
-            //reads txt file and creates list, each line being item in list. 
-            using (StreamReader sr = new StreamReader(@"C:\Users\nerdelt\source\repos\CG-11-2\StudentGrades\StudentGrades\studentdata.txt"))
-            {
-                //while loop to add each line as an element in  list Students
-                while ((line = sr.ReadLine()) != null)
-                {
-                    Students.Add(line);
-                }
-            }
-        }
-
-        public void NameAndAverage()
+        public void NameAndAverage(List<string> students)
         {
             // creates loop that....
-            foreach (string s in Students)
+            foreach (string s in students)
             {
                 //splits each string into smaller strings and adds them to new list
                 SplitList = s.Split(' ').ToList();
@@ -59,6 +42,7 @@ namespace StudentGrades
                         //coverts strings to int and adds them to int list
                         Scores.AddRange(SplitList.ConvertAll(int.Parse));
                     }
+
                 //finds averages of scores in list
                 Average = Scores.Average();
 
