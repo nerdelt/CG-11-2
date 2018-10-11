@@ -34,12 +34,12 @@ namespace StudentGrades
                 //removes name to just have int
                 SplitList.RemoveAt(0);
 
-                //creates a loop to 
+                //creates a loop that 
                 foreach (string n in SplitList)
                     {
                         //Scores.Add(int.Parse(n)); (another way to do this)
 
-                        //coverts strings to int and adds them to int list
+                        //converts strings to int and adds them to int list
                         Scores.AddRange(SplitList.ConvertAll(int.Parse));
                     }
 
